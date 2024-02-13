@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroFilmes.Web", "CadastroFilmes.Web\CadastroFilmes.Web.csproj", "{C7F42135-80DC-40BB-905D-CE235A6A8D3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CadastroFilmes.Api", "CadastroFilmes.Api\CadastroFilmes.Api.csproj", "{DFD6C4C7-3F2E-4DF1-8B8B-1AFC779B96D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7F42135-80DC-40BB-905D-CE235A6A8D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F42135-80DC-40BB-905D-CE235A6A8D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7F42135-80DC-40BB-905D-CE235A6A8D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F42135-80DC-40BB-905D-CE235A6A8D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFD6C4C7-3F2E-4DF1-8B8B-1AFC779B96D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFD6C4C7-3F2E-4DF1-8B8B-1AFC779B96D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFD6C4C7-3F2E-4DF1-8B8B-1AFC779B96D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFD6C4C7-3F2E-4DF1-8B8B-1AFC779B96D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15DDB148-AF94-464C-A9ED-B0247CD81512}
+	EndGlobalSection
+EndGlobal
