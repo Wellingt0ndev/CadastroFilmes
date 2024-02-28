@@ -1,4 +1,4 @@
-﻿namespace CadastroFilmes.Web.Models
+﻿namespace CadastroFilmes.Domain.Entities
 {
     public class Filme
     {
@@ -17,12 +17,12 @@
 
         public Filme(string nome, string genero) : this(nome)
         {
-            Genero = genero;            
+            Genero = genero;
         }
 
-        public Filme(int id, string nome, string genero):this(nome,genero)
+        public Filme(int id, string nome, string genero) : this(nome, genero)
         {
-            Id = id;            
+            Id = id;
         }
     }
 }

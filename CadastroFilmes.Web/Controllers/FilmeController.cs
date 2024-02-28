@@ -1,4 +1,4 @@
-﻿using CadastroFilmes.Web.Models;
+﻿using CadastroFilmes.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CadastroFilmes.Web.Controllers

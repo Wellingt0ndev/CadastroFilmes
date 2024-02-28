@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CadastroFilmes.Domain\CadastroFilmes.Domain.csproj" />
+    <ProjectReference Include="..\CadastroFilmes.Web\CadastroFilmes.Web.csproj" />
+  </ItemGroup>
+
 </Project>
