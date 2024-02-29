@@ -1,28 +1,60 @@
-﻿namespace CadastroFilmes.Domain.Entities
+﻿namespace CadastroFilmes.Domain.Entities;
+/// <summary>
+/// Classe para registro de filmes
+/// </summary>
+
+public class Filme
 {
-    public class Filme
+    #region Propriedades
+    public int FilmeId { get; set; }
+    public string Nome { get; set; }
+    public string Genero { get; set; }
+    public int Duracao { get; set; }
+    #endregion
+
+    #region Construtores
+    /// <summary>
+    /// Construtor de Filmes
+    /// </summary>
+    /// <param name="id">Recebe um campo númerico do tipo int ex: 2</param>
+    /// <param name="nome">Recebe um campo texto para nome do filme ex: Rambo</param>
+    /// <param name="genero">Recebe um campo texto com o genero do filme ex: ação</param>
+    /// <param name="duracao">Recebe a duração do filme ex: 121 </param>
+    public Filme(int id, string nome, string genero, int duracao) : this(nome, genero, duracao)
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Genero { get; set; }
+        FilmeId = id;
+    }
+    public Filme(string nome, string genero, int duracao)
+    {
+        Nome = nome;
+        Genero = genero;
+        Duracao = duracao;
+    }
 
-        public Filme()
+    public Filme()
+    {
+    }
+
+
+    
+    #endregion
+
+    #region Métodos
+    public void ValidarPropriedade()
+    {
+        if (string.IsNullOrEmpty(this.Nome))
         {
+            throw new Exception("Campo nome é obrigatório");
         }
-
-        public Filme(string nome)
+        if (string.IsNullOrEmpty(this.Genero))
         {
-            Nome = nome;
+            throw new Exception("Campo genero é obrigatório");
         }
-
-        public Filme(string nome, string genero) : this(nome)
+        if (this.Duracao <= 0)
         {
-            Genero = genero;
-        }
-
-        public Filme(int id, string nome, string genero) : this(nome, genero)
-        {
-            Id = id;
+            throw new Exception("Campo Duração é obrigatório");
         }
     }
+    #endregion
+
 }
