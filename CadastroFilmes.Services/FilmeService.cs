@@ -40,7 +40,7 @@ namespace CadastroFilmes.Services
 
         public Filme PesquisarPorId(int id)
         {
-            var filme = PesquisarPorId(id);
+            var filme = _filmeRepository.PesquisarPorId(id);
             return filme;
         }
     }

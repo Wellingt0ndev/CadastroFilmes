@@ -1,3 +1,6 @@
+using CadastroFilmes.IoC;
+
+
 namespace CadastroFilmes.Api
 {
     public class Program
@@ -7,6 +10,8 @@ namespace CadastroFilmes.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            Startup.Configure(builder.Configuration, builder.Services );
 
             builder.Services.AddControllers();
 

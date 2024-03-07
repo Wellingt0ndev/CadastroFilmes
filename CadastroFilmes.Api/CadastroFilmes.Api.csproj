@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CadastroFilmes.Domain\CadastroFilmes.Domain.csproj" />
+    <ProjectReference Include="..\CadastroFilmes.IoC\CadastroFilmes.IoC.csproj" />
+    <ProjectReference Include="..\CadastroFilmes.Services\CadastroFilmes.Services.csproj" />
     <ProjectReference Include="..\CadastroFilmes.Web\CadastroFilmes.Web.csproj" />
   </ItemGroup>
 
