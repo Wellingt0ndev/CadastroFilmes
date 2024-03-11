@@ -1,5 +1,6 @@
 ﻿using CadastroFilmes.Domain.Contracts;
 using CadastroFilmes.Domain.Entities;
+using CadastroFilmes.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,29 +20,90 @@ namespace CadastroFilmes.Services
 
         public void Atualizar(Filme entidade)
         {
-            _filmeRepository.Atualizar(entidade);
+            try
+            {
+                _filmeRepository.Atualizar(entidade);
+            }
+            catch(RepositoryException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                var message = "[ServiceException] - Falha ao atualizar um filme";
+                throw new ServiceException(message, ex);
+            }
+
         }
 
         public void Cadastrar(Filme entidade)
         {
-            _filmeRepository.Cadastrar(entidade);
+            try
+            {
+                _filmeRepository.Cadastrar(entidade);
+            }
+            catch (RepositoryException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                var message = "[ServiceException] - Falha ao cadastrar um filme";
+                throw new ServiceException(message, ex);
+            }
         }
 
         public void Excluir(int id)
         {
-            _filmeRepository.Excluir(id);
+            try
+            {
+                _filmeRepository.Excluir(id);
+            }
+            catch (RepositoryException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                var message = "[ServiceException] - Falha ao excluir um filme";
+                throw new ServiceException(message, ex);
+            }
         }
 
         public List<Filme> Listar()
         {
-            var result = _filmeRepository.Listar();
-            return result;
+            try
+            {
+                var result = _filmeRepository.Listar();
+                return result;
+            }
+            catch (RepositoryException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                var message = "[ServiceException] - Falha ao listar um filme";
+                throw new ServiceException(message, ex);
+            }
         }
 
         public Filme PesquisarPorId(int id)
         {
-            var filme = _filmeRepository.PesquisarPorId(id);
-            return filme;
+            try
+            {
+                var filme = _filmeRepository.PesquisarPorId(id);
+                return filme;
+            }
+            catch (RepositoryException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                var message = "[ServiceException] - Falha ao pesquisar um filme";
+                throw new ServiceException(message, ex);
+            }
         }
     }
 }

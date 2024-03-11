@@ -1,5 +1,6 @@
 ﻿using CadastroFilmes.Domain.Contracts;
 using CadastroFilmes.Domain.Entities;
+using CadastroFilmes.Domain.Exceptions;
 
 namespace CadastroFilmes.Infrastructure.Repositories
 {
@@ -26,36 +27,79 @@ namespace CadastroFilmes.Infrastructure.Repositories
 
         public void Cadastrar(Filme filme)
         {
+            try
+            {
             _filmes.Add(filme);
+            }
+            catch(Exception ex)
+            {
+                var message = "[RepositoryException] - Falha ao cadastrar filme";
+                throw new RepositoryException(message, ex);
+            }             
         }
         public void Atualizar(Filme filme)
         {
+            try
+            {
             Filme filmePesquisado = PesquisarPorId(filme.FilmeId);
             if(filmePesquisado != null)
             {
                 _filmes.Remove(filmePesquisado);
                 _filmes.Add(filme);
             }
-        }
-
-        public void Excluir(int id) 
-        {
-            Filme filmePesquisado = PesquisarPorId(id);
-            if (filmePesquisado != null)
+            }
+            catch(Exception ex)
             {
-                _filmes.Remove(filmePesquisado);
+                var message = "[RepositoryException] - Falha ao atualizar filme";
+                throw new RepositoryException(message, ex);
             }
         }
 
-        public Filme PesquisarPorId(int id)
-        {
-            Filme result = _filmes.FirstOrDefault(p => p.FilmeId == id);
-            return result;
+        public void Excluir(int id) 
+        {            
+            try
+            {
+                Filme filmePesquisado = PesquisarPorId(id);
+                if (filmePesquisado != null)
+                {
+                    _filmes.Remove(filmePesquisado);
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = "[RepositoryException] - Falha ao excluir filme";
+                throw new RepositoryException(message, ex);
+            }
         }
 
+
+        public Filme PesquisarPorId(int id)
+        {            
+            try
+            {
+                Filme result = _filmes.FirstOrDefault(p => p.FilmeId == id);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                var message = "[RepositoryException] - Falha ao pesquisar filme";
+                throw new RepositoryException(message, ex);
+            }
+
+        }
+
+
         public List<Filme> Listar()
-        {
-            return _filmes;
+        {            
+            try
+            {
+                return _filmes;
+            }
+            catch (Exception ex)
+            {
+                var message = "[RepositoryException] - Falha ao listar filme";
+                throw new RepositoryException(message, ex);
+            }
         }
     }
 }
