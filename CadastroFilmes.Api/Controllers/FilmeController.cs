@@ -1,12 +1,13 @@
 ﻿using CadastroFilmes.Domain.Contracts;
-using Microsoft.AspNetCore.Http;
+using CadastroFilmes.Domain.Dtos;
+using CadastroFilmes.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CadastroFilmes.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FilmeController : ControllerBase, IGenericController<FilmeController, int>
+    public class FilmeController : ControllerBase, IGenericController<FilmeDto, int>
     {
         private readonly IFilmeService _filmeService;
 
@@ -15,20 +16,25 @@ namespace CadastroFilmes.Api.Controllers
             _filmeService = filmeService;
         }
 
-        public ActionResult Atualizar(FilmeController entidade)
+        public ActionResult Atualizar(FilmeDto entidade)
         {
             throw new NotImplementedException();
         }
 
-        public ActionResult Cadastrar(FilmeController entidade)
+        [HttpPost]
+        public ActionResult Cadastrar(FilmeDto dto)
         {
-            throw new NotImplementedException();
+            Filme entidade = new Filme(dto.FilmeId, dto.Nome, dto.Genero, dto.Duracao);
+            _filmeService.Cadastrar(entidade);
+            var message = "Cadastro efetuado com sucesso";
+            return Ok(message);
         }
 
         public ActionResult Excluir(int id)
         {
             throw new NotImplementedException();
         }
+
         [HttpGet]
         public ActionResult Listar()
         {

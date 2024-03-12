@@ -6,10 +6,10 @@
 public class Filme
 {
     #region Propriedades
-    public int FilmeId { get; set; }
-    public string Nome { get; set; }
-    public string Genero { get; set; }
-    public int Duracao { get; set; }
+    public int FilmeId { get;}
+    public string Nome { get;}
+    public string Genero { get;}
+    public int Duracao { get;}
     #endregion
 
     #region Construtores
@@ -33,9 +33,7 @@ public class Filme
 
     public Filme()
     {
-    }
-
-
+    }  
     
     #endregion
 

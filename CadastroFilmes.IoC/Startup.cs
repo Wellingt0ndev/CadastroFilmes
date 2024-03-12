@@ -26,7 +26,7 @@ namespace CadastroFilmes.IoC
 
         public static void ConfigureRepository(IServiceCollection services)
         {
-            services.AddScoped<IFilmeRepository, FilmeRepository>();
+            services.AddSingleton<IFilmeRepository, FilmeRepository>();
 
         }
     }
