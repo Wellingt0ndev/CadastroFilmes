@@ -15,7 +15,14 @@ namespace CadastroFilmes.Api
 
             builder.Services.AddControllers();
 
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
+
             var app = builder.Build();
+
+            app.UseSwaggerUI();
+            app.UseSwagger();
 
             // Configure the HTTP request pipeline.
 

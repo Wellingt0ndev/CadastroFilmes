@@ -1,6 +1,7 @@
 ﻿using CadastroFilmes.Domain.Contracts;
 using CadastroFilmes.Domain.Dtos;
 using CadastroFilmes.Domain.Entities;
+using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CadastroFilmes.Api.Controllers
@@ -16,9 +17,13 @@ namespace CadastroFilmes.Api.Controllers
             _filmeService = filmeService;
         }
 
-        public ActionResult Atualizar(FilmeDto entidade)
+        [HttpPatch]
+        public ActionResult Atualizar(FilmeDto dto)
         {
-            throw new NotImplementedException();
+            Filme entidade = new Filme(dto.FilmeId, dto.Nome, dto.Genero, dto.Duracao);
+            _filmeService.Atualizar(entidade);
+            var message = "Atualizado com sucesso";
+            return Ok(message);
         }
 
         [HttpPost]
@@ -29,10 +34,12 @@ namespace CadastroFilmes.Api.Controllers
             var message = "Cadastro efetuado com sucesso";
             return Ok(message);
         }
-
+        [HttpDelete("{id}")]
         public ActionResult Excluir(int id)
-        {
-            throw new NotImplementedException();
+        { 
+            _filmeService.Excluir(id);
+            var message = "Filme excluido";
+            return Ok(message);
         }
 
         [HttpGet]
@@ -41,6 +48,7 @@ namespace CadastroFilmes.Api.Controllers
             var result = _filmeService.Listar(); ;
             return Ok(result);
         }
+
         [HttpGet("{id}")]
         public ActionResult PesquisarPorId(int id)
         {
