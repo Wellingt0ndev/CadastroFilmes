@@ -20,7 +20,7 @@ namespace CadastroFilmes.Api.Controllers
         [HttpPatch]
         public ActionResult Atualizar(FilmeDto dto)
         {
-            Filme entidade = new Filme(dto.FilmeId, dto.Nome, dto.Genero, dto.Duracao);
+            Filme entidade = new Filme(dto.Id, dto.Nome, dto.Genero, dto.Duracao);
             _filmeService.Atualizar(entidade);
             var message = "Atualizado com sucesso";
             return Ok(message);
@@ -29,7 +29,7 @@ namespace CadastroFilmes.Api.Controllers
         [HttpPost]
         public ActionResult Cadastrar(FilmeDto dto)
         {
-            Filme entidade = new Filme(dto.FilmeId, dto.Nome, dto.Genero, dto.Duracao);
+            Filme entidade = new Filme(dto.Id, dto.Nome, dto.Genero, dto.Duracao);
             _filmeService.Cadastrar(entidade);
             var message = "Cadastro efetuado com sucesso";
             return Ok(message);

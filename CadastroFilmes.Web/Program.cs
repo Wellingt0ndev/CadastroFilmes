@@ -1,3 +1,6 @@
+using CadastroFilmes.Web.Context;
+using Microsoft.EntityFrameworkCore;
+
 namespace CadastroFilmes.Web
 {
     public class Program
@@ -7,6 +10,8 @@ namespace CadastroFilmes.Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<FilmeContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoPadrao")));
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
